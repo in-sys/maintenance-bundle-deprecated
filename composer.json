@@ -1,9 +1,8 @@
 {
-    "name": "lexik/maintenance-bundle",
+    "name": "contao/maintenance-bundle-deprecated",
     "type": "symfony-bundle",
     "description": "This bundle allows you to place your website in maintenance mode by calling two commands from your console.",
-    "keywords": ["Symfony2", "bundle", "maintenance"],
-    "homepage": "https://github.com/lexik/LexikMaintenanceBundle",
+    "homepage": "https://github.com/contao/maintenance-bundle-deprecated",
     "license": "MIT",
     "authors": [
         {
@@ -20,20 +19,20 @@
         }
     ],
     "require": {
-        "php": ">=5.3.9",
-        "symfony/framework-bundle": "~2.7|~3.0|^4.0",
-        "symfony/translation": "~2.7|~3.0|^4.0"
+        "php": "^7.1",
+        "symfony/console": "^4.0|^5.0",
+        "symfony/contracts": "^2.0",
+        "symfony/framework-bundle": "^4.0|^5.0",
+        "symfony/translation": "^4.0|^5.0"
+    },
+    "replace": {
+        "lexik/maintenance-bundle": "2.1.99"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "~2.7|~3.0|^4.0",
-        "phpunit/phpunit": "~4.8|~5.7.11"
+        "symfony/phpunit-bridge": "^4.0|^5.0",
+        "phpunit/phpunit": "~5.7.11"
     },
     "autoload":     {
         "psr-4": { "Lexik\\Bundle\\MaintenanceBundle\\": "" }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
     }
 }

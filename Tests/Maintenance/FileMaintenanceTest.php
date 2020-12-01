@@ -18,19 +18,19 @@ class FileMaintenanceTest extends TestCase
     static protected $tmpDir;
     protected $container;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
 
         self::$tmpDir = sys_get_temp_dir().'/symfony2_finder';
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->container = $this->initContainer();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->container = null;
     }
@@ -51,13 +51,11 @@ class FileMaintenanceTest extends TestCase
         $this->assertFalse($fileM2->decide());
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testExceptionInvalidPath()
     {
-        $fileM = new FileDriver(array());
-        $fileM->setTranslator($this->getTranslator());
+        $this->expectException(\InvalidArgumentException::class);
+
+        new FileDriver(array());
     }
 
     public function testLock()
@@ -110,11 +108,6 @@ class FileMaintenanceTest extends TestCase
         // unlock
         $this->assertEquals($fileM->getMessageUnlock(true), 'lexik_maintenance.success_unlock');
         $this->assertEquals($fileM->getMessageUnlock(false), 'lexik_maintenance.not_success_unlock');
-    }
-
-    static public function tearDownAfterClass()
-    {
-        parent::tearDownAfterClass();
     }
 
     protected function initContainer()

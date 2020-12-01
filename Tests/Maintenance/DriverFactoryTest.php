@@ -2,7 +2,9 @@
 
 namespace Lexik\Bundle\MaintenanceBundle\Tests\Maintenance;
 
+use ErrorException;
 use Lexik\Bundle\MaintenanceBundle\Drivers\DriverFactory;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -13,12 +15,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * @package LexikMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
-class DriverFactoryTest extends \PHPUnit_Framework_TestCase
+class DriverFactoryTest extends TestCase
 {
     protected $factory;
     protected $container;
 
-    public function setUp()
+    public function setUp(): void
     {
         $driverOptions = array(
             'class' => '\Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver',
@@ -30,7 +32,7 @@ class DriverFactoryTest extends \PHPUnit_Framework_TestCase
         $this->container->set('lexik_maintenance.driver.factory', $this->factory);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->factory = null;
     }
@@ -41,12 +43,14 @@ class DriverFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver', $driver);
     }
 
-    /**
-     * @expectedException ErrorException
-     */
     public function testExceptionConstructor()
     {
-        $factory = new DriverFactory($this->getDatabaseDriver(), $this->getTranslator(), array());
+        $driver = $this->getDatabaseDriver();
+        $translator = $this->getTranslator();
+
+        $this->expectException(ErrorException::class);
+
+        new DriverFactory($driver, $translator, array());
     }
 
     public function testWithDatabaseChoice()
@@ -67,13 +71,9 @@ class DriverFactoryTest extends \PHPUnit_Framework_TestCase
         $factory = new DriverFactory($this->getDatabaseDriver(), $this->getTranslator(), $driverOptions);
         $this->container->set('lexik_maintenance.driver.factory', $factory);
 
-        try {
-            $factory->getDriver();
-        } catch (\ErrorException $expected) {
-            return;
-        }
+        $this->expectException(ErrorException::class);
 
-        $this->fail('An expected exception has not been raised.');
+        $factory->getDriver();
     }
 
     protected function initContainer()

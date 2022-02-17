@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/in-sys/symfony-maintenance-bundle/compare/v1.0.1...v1.0.2) (2022-02-17)
+
+
+### Bug Fixes
+
+* rename LexikMaintenanceExtension.php to INSYSMaintenanceExtension.php ([f01c7e3](https://www.github.com/in-sys/symfony-maintenance-bundle/commit/f01c7e3227f315b3df9d631cbfdf30b653b01ec0))
+
 ### [1.0.1](https://www.github.com/in-sys/symfony-maintenance-bundle/compare/v1.0.0...v1.0.1) (2022-02-17)
 
 

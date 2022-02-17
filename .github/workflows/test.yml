@@ -1,6 +1,6 @@
 name: Test PHPUnit
 
-on: ["pull_request", "push", "workflow_dispatch"]
+on: [push]
 
 jobs:
   test:

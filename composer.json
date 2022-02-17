@@ -1,7 +1,7 @@
 {
     "name": "in-sys/symfony-maintenance-bundle",
     "type": "symfony-bundle",
-    "description": "This bundle allows you to place your website in maintenance mode by calling two commands from your console.",
+    "description": "This bundle allows you to place your website in maintenance mode by calling two commands from your console. Symfony 5.4 / 6",
     "homepage": "https://github.com/in-sys/symfony-maintenance-bundle",
     "license": "MIT",
     "authors": [

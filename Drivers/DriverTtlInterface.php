@@ -1,11 +1,11 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Drivers;
+namespace INSYS\Bundle\MaintenanceBundle\Drivers;
 
 /**
  * Interface DriverTtlInterface
  *
- * @package Lexik\Bundle\MaintenanceBundle\Drivers
+ * @package INSYS\Bundle\MaintenanceBundle\Drivers
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 interface DriverTtlInterface

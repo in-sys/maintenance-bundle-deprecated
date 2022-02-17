@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Tests\Maintenance;
+namespace INSYS\Bundle\MaintenanceBundle\Tests\Maintenance;
 
-use Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver;
+use INSYS\Bundle\MaintenanceBundle\Drivers\FileDriver;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -10,7 +10,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Test driver file
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class FileMaintenanceTest extends TestCase
@@ -102,19 +102,19 @@ class FileMaintenanceTest extends TestCase
         $fileM->lock();
 
         // lock
-        $this->assertEquals($fileM->getMessageLock(true), 'lexik_maintenance.success_lock_file');
-        $this->assertEquals($fileM->getMessageLock(false), 'lexik_maintenance.not_success_lock');
+        $this->assertEquals($fileM->getMessageLock(true), 'insys_maintenance.success_lock_file');
+        $this->assertEquals($fileM->getMessageLock(false), 'insys_maintenance.not_success_lock');
 
         // unlock
-        $this->assertEquals($fileM->getMessageUnlock(true), 'lexik_maintenance.success_unlock');
-        $this->assertEquals($fileM->getMessageUnlock(false), 'lexik_maintenance.not_success_unlock');
+        $this->assertEquals($fileM->getMessageUnlock(true), 'insys_maintenance.success_unlock');
+        $this->assertEquals($fileM->getMessageUnlock(false), 'insys_maintenance.not_success_unlock');
     }
 
     protected function initContainer()
     {
         $container = new ContainerBuilder(new ParameterBag(array(
             'kernel.debug'          => false,
-            'kernel.bundles'        => array('MaintenanceBundle' => 'Lexik\Bundle\MaintenanceBundle'),
+            'kernel.bundles'        => array('MaintenanceBundle' => 'INSYS\Bundle\MaintenanceBundle'),
             'kernel.cache_dir'      => sys_get_temp_dir(),
             'kernel.environment'    => 'dev',
             'kernel.root_dir'       => __DIR__.'/../../../../', // src dir

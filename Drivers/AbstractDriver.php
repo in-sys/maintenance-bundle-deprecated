@@ -1,13 +1,13 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Drivers;
+namespace INSYS\Bundle\MaintenanceBundle\Drivers;
 
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Abstract class for drivers
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 abstract class AbstractDriver

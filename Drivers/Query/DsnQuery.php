@@ -1,13 +1,13 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Drivers\Query;
+namespace INSYS\Bundle\MaintenanceBundle\Drivers\Query;
 
 use Doctrine\ORM\EntityManager;
 
 /**
  * Class for handle database with a dsn connection
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class DsnQuery extends PdoQuery

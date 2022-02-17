@@ -11,7 +11,7 @@
          bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="LexikMaintenanceBundle Test Suite">
+        <testsuite name="INSYSMaintenanceBundle Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>

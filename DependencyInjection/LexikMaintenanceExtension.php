@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\DependencyInjection;
+namespace INSYS\Bundle\MaintenanceBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -13,10 +13,10 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
-class LexikMaintenanceExtension extends Extension
+class INSYSMaintenanceExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -34,18 +34,18 @@ class LexikMaintenanceExtension extends Extension
             $config['driver']['options']['ttl'] = $config['driver']['ttl'];
         }
 
-        $container->setParameter('lexik_maintenance.driver', $config['driver']);
+        $container->setParameter('insys_maintenance.driver', $config['driver']);
 
-        $container->setParameter('lexik_maintenance.authorized.path', $config['authorized']['path']);
-        $container->setParameter('lexik_maintenance.authorized.host', $config['authorized']['host']);
-        $container->setParameter('lexik_maintenance.authorized.ips', $config['authorized']['ips']);
-        $container->setParameter('lexik_maintenance.authorized.query', $config['authorized']['query']);
-        $container->setParameter('lexik_maintenance.authorized.cookie', $config['authorized']['cookie']);
-        $container->setParameter('lexik_maintenance.authorized.route', $config['authorized']['route']);
-        $container->setParameter('lexik_maintenance.authorized.attributes', $config['authorized']['attributes']);
-        $container->setParameter('lexik_maintenance.response.http_code', $config['response']['code']);
-        $container->setParameter('lexik_maintenance.response.http_status', $config['response']['status']);
-        $container->setParameter('lexik_maintenance.response.exception_message', $config['response']['exception_message']);
+        $container->setParameter('insys_maintenance.authorized.path', $config['authorized']['path']);
+        $container->setParameter('insys_maintenance.authorized.host', $config['authorized']['host']);
+        $container->setParameter('insys_maintenance.authorized.ips', $config['authorized']['ips']);
+        $container->setParameter('insys_maintenance.authorized.query', $config['authorized']['query']);
+        $container->setParameter('insys_maintenance.authorized.cookie', $config['authorized']['cookie']);
+        $container->setParameter('insys_maintenance.authorized.route', $config['authorized']['route']);
+        $container->setParameter('insys_maintenance.authorized.attributes', $config['authorized']['attributes']);
+        $container->setParameter('insys_maintenance.response.http_code', $config['response']['code']);
+        $container->setParameter('insys_maintenance.response.http_status', $config['response']['status']);
+        $container->setParameter('insys_maintenance.response.exception_message', $config['response']['exception_message']);
 
         if (isset($config['driver']['options']['dsn'])) {
             $this->registerDsnconfiguration($config['driver']['options']);

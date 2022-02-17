@@ -1,15 +1,15 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Drivers;
+namespace INSYS\Bundle\MaintenanceBundle\Drivers;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use Lexik\Bundle\MaintenanceBundle\Drivers\Query\DefaultQuery;
-use Lexik\Bundle\MaintenanceBundle\Drivers\Query\DsnQuery;
+use INSYS\Bundle\MaintenanceBundle\Drivers\Query\DefaultQuery;
+use INSYS\Bundle\MaintenanceBundle\Drivers\Query\DsnQuery;
 
 /**
  * Class driver for handle database
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class DatabaseDriver extends AbstractDriver implements DriverTtlInterface
@@ -132,7 +132,7 @@ class DatabaseDriver extends AbstractDriver implements DriverTtlInterface
      */
     public function getMessageLock($resultTest)
     {
-        $key = $resultTest ? 'lexik_maintenance.success_lock_database' : 'lexik_maintenance.not_success_lock';
+        $key = $resultTest ? 'insys_maintenance.success_lock_database' : 'insys_maintenance.not_success_lock';
 
         return $this->translator->trans($key, array(), 'maintenance');
     }
@@ -142,7 +142,7 @@ class DatabaseDriver extends AbstractDriver implements DriverTtlInterface
      */
     public function getMessageUnlock($resultTest)
     {
-        $key = $resultTest ? 'lexik_maintenance.success_unlock' : 'lexik_maintenance.not_success_unlock';
+        $key = $resultTest ? 'insys_maintenance.success_unlock' : 'insys_maintenance.not_success_unlock';
 
         return $this->translator->trans($key, array(), 'maintenance');
     }

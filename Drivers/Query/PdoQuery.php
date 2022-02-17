@@ -1,13 +1,13 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Drivers\Query;
+namespace INSYS\Bundle\MaintenanceBundle\Drivers\Query;
 
 use Doctrine\ORM\EntityManager;
 
 /**
  * Abstract class to handle PDO connection
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 abstract class PdoQuery

@@ -1,13 +1,13 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Exception;
+namespace INSYS\Bundle\MaintenanceBundle\Exception;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * The server is currently unavailable (because it is overloaded or down for maintenance)
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class ServiceUnavailableException extends HttpException

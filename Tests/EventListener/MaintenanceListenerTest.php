@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Tests\EventListener;
+namespace INSYS\Bundle\MaintenanceBundle\Tests\EventListener;
 
-use Lexik\Bundle\MaintenanceBundle\Drivers\DriverFactory;
+use INSYS\Bundle\MaintenanceBundle\Drivers\DriverFactory;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
@@ -17,7 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Test for the maintenance listener
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class MaintenanceListenerTest extends TestCase
@@ -42,7 +42,7 @@ class MaintenanceListenerTest extends TestCase
         $this->container = $this->initContainer();
 
         $this->factory = new DriverFactory($this->getDatabaseDriver(false),$this->getTranslator(), $driverOptions);
-        $this->container->set('lexik_maintenance.driver.factory', $this->factory);
+        $this->container->set('insys_maintenance.driver.factory', $this->factory);
 
         $listener = new MaintenanceListenerTestWrapper($this->factory);
         $this->assertTrue($listener->onKernelRequest($event), 'Permissive factory should approve without args');
@@ -51,7 +51,7 @@ class MaintenanceListenerTest extends TestCase
         $this->assertTrue($listener->onKernelRequest($event), 'Permissive factory should approve with args');
 
         $this->factory = new DriverFactory($this->getDatabaseDriver(true), $this->getTranslator(), $driverOptions);
-        $this->container->set('lexik_maintenance.driver.factory', $this->factory);
+        $this->container->set('insys_maintenance.driver.factory', $this->factory);
 
         $listener = new MaintenanceListenerTestWrapper($this->factory);
         $this->assertFalse($listener->onKernelRequest($event), 'Restrictive factory should deny without args');
@@ -76,7 +76,7 @@ class MaintenanceListenerTest extends TestCase
         $this->container = $this->initContainer();
 
         $this->factory = new DriverFactory($this->getDatabaseDriver(true), $this->getTranslator(), $driverOptions);
-        $this->container->set('lexik_maintenance.driver.factory', $this->factory);
+        $this->container->set('insys_maintenance.driver.factory', $this->factory);
 
         $listener = new MaintenanceListenerTestWrapper($this->factory, null);
         $this->assertFalse($listener->onKernelRequest($event), 'Restrictive factory should deny without path');
@@ -107,7 +107,7 @@ class MaintenanceListenerTest extends TestCase
         $this->container = $this->initContainer();
 
         $this->factory = new DriverFactory($this->getDatabaseDriver(true), $this->getTranslator(), $driverOptions);
-        $this->container->set('lexik_maintenance.driver.factory', $this->factory);
+        $this->container->set('insys_maintenance.driver.factory', $this->factory);
 
         $listener = new MaintenanceListenerTestWrapper($this->factory, null, null);
         $this->assertFalse($listener->onKernelRequest($event), 'Restrictive factory should deny without host');
@@ -141,7 +141,7 @@ class MaintenanceListenerTest extends TestCase
         $this->container = $this->initContainer();
 
         $this->factory = new DriverFactory($this->getDatabaseDriver(true), $this->getTranslator(), $driverOptions);
-        $this->container->set('lexik_maintenance.driver.factory', $this->factory);
+        $this->container->set('insys_maintenance.driver.factory', $this->factory);
 
         $listener = new MaintenanceListenerTestWrapper($this->factory, null, null, null);
         $this->assertFalse($listener->onKernelRequest($event), 'Restrictive factory should deny without ips');
@@ -175,7 +175,7 @@ class MaintenanceListenerTest extends TestCase
         $this->container = $this->initContainer();
 
         $this->factory = new DriverFactory($this->getDatabaseDriver(true), $this->getTranslator(), $driverOptions);
-        $this->container->set('lexik_maintenance.driver.factory', $this->factory);
+        $this->container->set('insys_maintenance.driver.factory', $this->factory);
 
         $listener = new MaintenanceListenerTestWrapper($this->factory, null, null, null, array(), array(), $debug);
 
@@ -223,7 +223,7 @@ class MaintenanceListenerTest extends TestCase
         $this->container = $this->initContainer();
 
         $this->factory = new DriverFactory($this->getDatabaseDriver(true), $this->getTranslator(), $driverOptions);
-        $this->container->set('lexik_maintenance.driver.factory', $this->factory);
+        $this->container->set('insys_maintenance.driver.factory', $this->factory);
 
         $listener = new MaintenanceListenerTestWrapper($this->factory, null, null, null, null);
         $this->assertFalse($listener->onKernelRequest($event), 'Restrictive factory should deny without query');
@@ -263,7 +263,7 @@ class MaintenanceListenerTest extends TestCase
         $this->container = $this->initContainer();
 
         $this->factory = new DriverFactory($this->getDatabaseDriver(true), $this->getTranslator(), $driverOptions);
-        $this->container->set('lexik_maintenance.driver.factory', $this->factory);
+        $this->container->set('insys_maintenance.driver.factory', $this->factory);
 
         $listener = new MaintenanceListenerTestWrapper($this->factory, null, null, null, null, null);
         $this->assertFalse($listener->onKernelRequest($event), 'Restrictive factory should deny without cookies');
@@ -300,7 +300,7 @@ class MaintenanceListenerTest extends TestCase
     {
         $container = new ContainerBuilder(new ParameterBag(array(
             'kernel.debug'          => false,
-            'kernel.bundles'        => array('MaintenanceBundle' => 'Lexik\Bundle\MaintenanceBundle'),
+            'kernel.bundles'        => array('MaintenanceBundle' => 'INSYS\Bundle\MaintenanceBundle'),
             'kernel.cache_dir'      => sys_get_temp_dir(),
             'kernel.environment'    => 'dev',
             'kernel.root_dir'       => __DIR__.'/../../../../', // src dir
@@ -318,7 +318,7 @@ class MaintenanceListenerTest extends TestCase
      */
     protected function getDatabaseDriver($lock = false)
     {
-        $db = $this->getMockbuilder('Lexik\Bundle\MaintenanceBundle\Drivers\DatabaseDriver')
+        $db = $this->getMockbuilder('INSYS\Bundle\MaintenanceBundle\Drivers\DatabaseDriver')
             ->disableOriginalConstructor()
             ->getMock();
 

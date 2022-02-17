@@ -4,7 +4,7 @@ Installation
 ## Install it via composer
 
 ```shell
-php composer.phar require lexik/maintenance-bundle
+php composer.phar require insys/maintenance-bundle
 ```
 
 
@@ -19,7 +19,7 @@ You must register the bundle in your kernel:
     {
         $bundles = array(
             // ...
-            new Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle(),
+            new INSYS\Bundle\MaintenanceBundle\INSYSMaintenanceBundle(),
         );
         // ...
     }
@@ -36,7 +36,7 @@ Here the complete configuration with the `example` of each pair of class / optio
 The ttl (time to life) option is optional everywhere, it is used to indicate the duration in `second` of the maintenance.
 
     #app/config.yml
-    lexik_maintenance:
+    insys_maintenance:
         authorized:
             path: /path                                                         # Optional. Authorized path, accepts regexs
             host: your-domain.com                                               # Optional. Authorized domain, accepts regexs
@@ -49,19 +49,19 @@ The ttl (time to life) option is optional everywhere, it is used to indicate the
             ttl: 3600                                                                  # Optional ttl option, can be not set
 
              # File driver
-            class: '\Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver'                # class for file driver
+            class: '\INSYS\Bundle\MaintenanceBundle\Drivers\FileDriver'                # class for file driver
             options: {file_path: %kernel.root_dir%/../app/cache/lock}                  # file_path is the complete path for create the file (Symfony < 3.0)
             options: {file_path: %kernel.root_dir%/../var/cache/lock}                  # file_path is the complete path for create the file (Symfony >= 3.0)
 
              # Shared memory driver
-            class: '\Lexik\Bundle\MaintenanceBundle\Drivers\ShmDriver'                 # class for shared memory driver
+            class: '\INSYS\Bundle\MaintenanceBundle\Drivers\ShmDriver'                 # class for shared memory driver
 
              # MemCache driver
-            class: Lexik\Bundle\MaintenanceBundle\Drivers\MemCacheDriver               # class for MemCache driver
+            class: INSYS\Bundle\MaintenanceBundle\Drivers\MemCacheDriver               # class for MemCache driver
             options: {key_name: 'maintenance', host: 127.0.0.1, port: 11211}           # need to define a key_name, the host and port
 
             # Database driver:
-            class: 'Lexik\Bundle\MaintenanceBundle\Drivers\DatabaseDriver'             # class for database driver
+            class: 'INSYS\Bundle\MaintenanceBundle\Drivers\DatabaseDriver'             # class for database driver
 
             # Option 1 : for doctrine
             options: {connection: custom}                                              # Optional. You can choice an other connection. Without option it's the doctrine default connection who will be used
@@ -80,21 +80,21 @@ The ttl (time to life) option is optional everywhere, it is used to indicate the
 
 There are two commands:
 
-    lexik:maintenance:lock [--set-ttl]
+    insys:maintenance:lock [--set-ttl]
 
 This command will enable the maintenance according with your configuration. You can pass the time to life of the maintenance in parameter, ``this doesn't works with file driver``.
 
-    lexik:maintenance:unlock
+    insys:maintenance:unlock
 
 This command will disable the maintenance
 
 You can execute the lock without a warning message which you need to interact with:
 
-    lexik:maintenance:lock --no-interaction
+    insys:maintenance:lock --no-interaction
 
 Or (with the optional ttl overwriting)
 
-    lexik:maintenance:lock 3600 -n
+    insys:maintenance:lock 3600 -n
 
 
 ---------------------
@@ -127,11 +127,11 @@ something. You may change the response code of the status page from 503 by chang
 Service
 --------
 
-You can use the ``lexik_maintenance.driver.factory`` service anyway in your app and call ``lock`` and ``unlock`` methods.
+You can use the ``insys_maintenance.driver.factory`` service anyway in your app and call ``lock`` and ``unlock`` methods.
 For example, you can build a backend module to activate maintenance mode.
 In your controller:
 
-    $driver = $this->get('lexik_maintenance.driver.factory')->getDriver();
+    $driver = $this->get('insys_maintenance.driver.factory')->getDriver();
     $message = "";
     if ($action === 'lock') {
         $message = $driver->getMessageLock($driver->lock());

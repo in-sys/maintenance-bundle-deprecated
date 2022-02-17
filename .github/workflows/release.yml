@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -14,8 +15,9 @@ jobs:
         with:
           app_id: ${{ secrets.BOT_APP_ID }}
           private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
-      - uses: GoogleCloudPlatform/release-please-action@main
+      - uses: GoogleCloudPlatform/release-please-action@v2
         with:
           release-type: php
+          bump-minor-pre-major: true
           package-name: insys-symfony-maintenance-bundle
           token: ${{ steps.generate-token.outputs.token }}

@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/in-sys/symfony-maintenance-bundle/compare/v1.0.0...v1.0.1) (2022-02-17)
+
+
+### Bug Fixes
+
+* refactor name ([94b0188](https://www.github.com/in-sys/symfony-maintenance-bundle/commit/94b018858270f31bd0cff17df182bfaad02d302e))
+
 ## [1.0.0](https://www.github.com/in-sys/symfony-maintenance-bundle/compare/v0.1.0...v1.0.0) (2022-02-17)
 
 

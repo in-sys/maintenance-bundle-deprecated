@@ -133,7 +133,6 @@ class DatabaseDriver extends AbstractDriver implements DriverTtlInterface
     public function getMessageLock($resultTest)
     {
         $key = $resultTest ? 'insys_maintenance.success_lock_database' : 'insys_maintenance.not_success_lock';
-
         return $this->translator->trans($key, array(), 'maintenance');
     }
 
@@ -143,7 +142,6 @@ class DatabaseDriver extends AbstractDriver implements DriverTtlInterface
     public function getMessageUnlock($resultTest)
     {
         $key = $resultTest ? 'insys_maintenance.success_unlock' : 'insys_maintenance.not_success_unlock';
-
         return $this->translator->trans($key, array(), 'maintenance');
     }
 

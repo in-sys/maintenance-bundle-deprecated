@@ -4,7 +4,7 @@ Installation
 ## Install it via composer
 
 ```shell
-php composer.phar require insys/maintenance-bundle
+php composer.phar require in-sys/symfony-maintenance-bundle
 ```
 
 

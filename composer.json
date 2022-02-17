@@ -1,5 +1,6 @@
 {
     "name": "in-sys/symfony-maintenance-bundle",
+    "version": "1.0.0",
     "type": "symfony-bundle",
     "description": "This bundle allows you to place your website in maintenance mode by calling two commands from your console. Symfony 5.4 / 6",
     "homepage": "https://github.com/in-sys/symfony-maintenance-bundle",
@@ -41,6 +42,5 @@
         "unit-tests": [
             "vendor/bin/phpunit"
         ]
-    },
-    "version": "1.0.0"
+    }
 }

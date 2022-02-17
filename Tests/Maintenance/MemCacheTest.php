@@ -1,20 +1,20 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Tests\Maintenance;
+namespace INSYS\Bundle\MaintenanceBundle\Tests\Maintenance;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use Lexik\Bundle\MaintenanceBundle\Drivers\MemCacheDriver;
+use INSYS\Bundle\MaintenanceBundle\Drivers\MemCacheDriver;
 
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 
 /**
  * Test mem cache
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class MemCacheTest extends TestCase
@@ -51,7 +51,7 @@ class MemCacheTest extends TestCase
     {
         $container = new ContainerBuilder(new ParameterBag(array(
             'kernel.debug'          => false,
-            'kernel.bundles'        => array('MaintenanceBundle' => 'Lexik\Bundle\MaintenanceBundle'),
+            'kernel.bundles'        => array('MaintenanceBundle' => 'INSYS\Bundle\MaintenanceBundle'),
             'kernel.cache_dir'      => sys_get_temp_dir(),
             'kernel.environment'    => 'dev',
             'kernel.root_dir'       => __DIR__.'/../../../../', // src dir

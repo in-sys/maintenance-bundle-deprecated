@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Drivers;
+namespace INSYS\Bundle\MaintenanceBundle\Drivers;
 
 class FileDriver extends AbstractDriver
 {
@@ -82,7 +82,7 @@ class FileDriver extends AbstractDriver
      */
     public function getMessageLock($resultTest)
     {
-        $key = $resultTest ? 'lexik_maintenance.success_lock_file' : 'lexik_maintenance.not_success_lock';
+        $key = $resultTest ? 'insys_maintenance.success_lock_file' : 'insys_maintenance.not_success_lock';
 
         return $this->translator->trans($key, array(), 'maintenance');
     }
@@ -92,7 +92,7 @@ class FileDriver extends AbstractDriver
      */
     public function getMessageUnlock($resultTest)
     {
-        $key = $resultTest ? 'lexik_maintenance.success_unlock' : 'lexik_maintenance.not_success_unlock';
+        $key = $resultTest ? 'insys_maintenance.success_unlock' : 'insys_maintenance.not_success_unlock';
 
         return $this->translator->trans($key, array(), 'maintenance');
     }

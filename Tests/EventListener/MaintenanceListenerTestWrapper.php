@@ -1,9 +1,9 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Tests\EventListener;
+namespace INSYS\Bundle\MaintenanceBundle\Tests\EventListener;
 
-use Lexik\Bundle\MaintenanceBundle\Listener\MaintenanceListener;
-use Lexik\Bundle\MaintenanceBundle\Exception\ServiceUnavailableException;
+use INSYS\Bundle\MaintenanceBundle\Listener\MaintenanceListener;
+use INSYS\Bundle\MaintenanceBundle\Exception\ServiceUnavailableException;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 

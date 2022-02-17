@@ -5,41 +5,41 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="lexik_maintenance.listener.class">Lexik\Bundle\MaintenanceBundle\Listener\MaintenanceListener</parameter>
-        <parameter key="lexik_maintenance.driver_factory.class">Lexik\Bundle\MaintenanceBundle\Drivers\DriverFactory</parameter>
+        <parameter key="insys_maintenance.listener.class">INSYS\Bundle\MaintenanceBundle\Listener\MaintenanceListener</parameter>
+        <parameter key="insys_maintenance.driver_factory.class">INSYS\Bundle\MaintenanceBundle\Drivers\DriverFactory</parameter>
     </parameters>
 
     <services>
-        <service id="lexik_maintenance.driver.factory" class="%lexik_maintenance.driver_factory.class%" public="true">
-            <argument type="service" id="lexik_maintenance.driver.database" />
+        <service id="insys_maintenance.driver.factory" class="%insys_maintenance.driver_factory.class%" public="true">
+            <argument type="service" id="insys_maintenance.driver.database" />
             <argument type="service" id="translator" />
-            <argument>%lexik_maintenance.driver%</argument>
+            <argument>%insys_maintenance.driver%</argument>
         </service>
 
-        <service id="lexik_maintenance.listener" class="%lexik_maintenance.listener.class%">
+        <service id="insys_maintenance.listener" class="%insys_maintenance.listener.class%">
             <tag name="kernel.event_listener" event="kernel.request"  method="onKernelRequest" />
             <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" />
-            <argument type="service" id="lexik_maintenance.driver.factory" />
-            <argument>%lexik_maintenance.authorized.path%</argument>
-            <argument>%lexik_maintenance.authorized.host%</argument>
-            <argument>%lexik_maintenance.authorized.ips%</argument>
-            <argument>%lexik_maintenance.authorized.query%</argument>
-            <argument>%lexik_maintenance.authorized.cookie%</argument>
-            <argument>%lexik_maintenance.authorized.route%</argument>
-            <argument>%lexik_maintenance.authorized.attributes%</argument>
-            <argument>%lexik_maintenance.response.http_code%</argument>
-            <argument>%lexik_maintenance.response.http_status%</argument>
-            <argument>%lexik_maintenance.response.exception_message%</argument>
+            <argument type="service" id="insys_maintenance.driver.factory" />
+            <argument>%insys_maintenance.authorized.path%</argument>
+            <argument>%insys_maintenance.authorized.host%</argument>
+            <argument>%insys_maintenance.authorized.ips%</argument>
+            <argument>%insys_maintenance.authorized.query%</argument>
+            <argument>%insys_maintenance.authorized.cookie%</argument>
+            <argument>%insys_maintenance.authorized.route%</argument>
+            <argument>%insys_maintenance.authorized.attributes%</argument>
+            <argument>%insys_maintenance.response.http_code%</argument>
+            <argument>%insys_maintenance.response.http_status%</argument>
+            <argument>%insys_maintenance.response.exception_message%</argument>
             <argument>%kernel.debug%</argument>
         </service>
 
-        <service id="Lexik\Bundle\MaintenanceBundle\Command\DriverLockCommand" class="Lexik\Bundle\MaintenanceBundle\Command\DriverLockCommand">
-            <argument type="service" id="lexik_maintenance.driver.factory" />
+        <service id="INSYS\Bundle\MaintenanceBundle\Command\DriverLockCommand" class="INSYS\Bundle\MaintenanceBundle\Command\DriverLockCommand">
+            <argument type="service" id="insys_maintenance.driver.factory" />
             <tag name="console.command"/>
         </service>
 
-        <service id="Lexik\Bundle\MaintenanceBundle\Command\DriverUnlockCommand" class="Lexik\Bundle\MaintenanceBundle\Command\DriverUnlockCommand">
-            <argument type="service" id="lexik_maintenance.driver.factory" />
+        <service id="INSYS\Bundle\MaintenanceBundle\Command\DriverUnlockCommand" class="INSYS\Bundle\MaintenanceBundle\Command\DriverUnlockCommand">
+            <argument type="service" id="insys_maintenance.driver.factory" />
             <tag name="console.command"/>
         </service>
     </services>

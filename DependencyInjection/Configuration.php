@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\DependencyInjection;
+namespace INSYS\Bundle\MaintenanceBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -10,7 +10,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class}
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class Configuration implements ConfigurationInterface
@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('lexik_maintenance');
+        $treeBuilder = new TreeBuilder('insys_maintenance');
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode

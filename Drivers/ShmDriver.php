@@ -1,11 +1,11 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Drivers;
+namespace INSYS\Bundle\MaintenanceBundle\Drivers;
 
 /**
  * Class to handle a shared memory driver
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Audrius Karabanovas <audrius@karabanovas.net>
  */
 class ShmDriver extends AbstractDriver
@@ -112,7 +112,7 @@ class ShmDriver extends AbstractDriver
      */
     public function getMessageLock($resultTest)
     {
-        $key = $resultTest ? 'lexik_maintenance.success_lock_shm' : 'lexik_maintenance.not_success_lock';
+        $key = $resultTest ? 'insys_maintenance.success_lock_shm' : 'insys_maintenance.not_success_lock';
 
         return $this->translator->trans($key, array(), 'maintenance');
     }
@@ -122,7 +122,7 @@ class ShmDriver extends AbstractDriver
      */
     public function getMessageUnlock($resultTest)
     {
-        $key = $resultTest ? 'lexik_maintenance.success_unlock' : 'lexik_maintenance.not_success_unlock';
+        $key = $resultTest ? 'insys_maintenance.success_unlock' : 'insys_maintenance.not_success_unlock';
 
         return $this->translator->trans($key, array(), 'maintenance');
     }

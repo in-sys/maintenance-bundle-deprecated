@@ -1,9 +1,9 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Listener;
+namespace INSYS\Bundle\MaintenanceBundle\Listener;
 
-use Lexik\Bundle\MaintenanceBundle\Drivers\DriverFactory;
-use Lexik\Bundle\MaintenanceBundle\Exception\ServiceUnavailableException;
+use INSYS\Bundle\MaintenanceBundle\Drivers\DriverFactory;
+use INSYS\Bundle\MaintenanceBundle\Exception\ServiceUnavailableException;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\IpUtils;
 /**
  * Listener to decide if user can access to the site
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class MaintenanceListener
@@ -21,7 +21,7 @@ class MaintenanceListener
     /**
      * Service driver factory
      *
-     * @var \Lexik\Bundle\MaintenanceBundle\Drivers\DriverFactory
+     * @var \INSYS\Bundle\MaintenanceBundle\Drivers\DriverFactory
      */
     protected $driverFactory;
 

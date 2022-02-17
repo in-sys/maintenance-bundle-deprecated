@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Command;
+namespace INSYS\Bundle\MaintenanceBundle\Command;
 
-use Lexik\Bundle\MaintenanceBundle\Drivers\DriverFactory;
+use INSYS\Bundle\MaintenanceBundle\Drivers\DriverFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Create an unlock action
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class DriverUnlockCommand extends Command
@@ -30,7 +30,7 @@ class DriverUnlockCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('lexik:maintenance:unlock')
+            ->setName('insys:maintenance:unlock')
             ->setDescription('Unlock access to the site while maintenance...')
             ->setHelp(<<<EOT
     You can execute the unlock without a warning message which you need to interact with:

@@ -1,10 +1,10 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Command;
+namespace INSYS\Bundle\MaintenanceBundle\Command;
 
-use Lexik\Bundle\MaintenanceBundle\Drivers\AbstractDriver;
-use Lexik\Bundle\MaintenanceBundle\Drivers\DriverFactory;
-use Lexik\Bundle\MaintenanceBundle\Drivers\DriverTtlInterface;
+use INSYS\Bundle\MaintenanceBundle\Drivers\AbstractDriver;
+use INSYS\Bundle\MaintenanceBundle\Drivers\DriverFactory;
+use INSYS\Bundle\MaintenanceBundle\Drivers\DriverTtlInterface;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Create a lock action
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 class DriverLockCommand extends Command
@@ -36,7 +36,7 @@ class DriverLockCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('lexik:maintenance:lock')
+            ->setName('insys:maintenance:lock')
             ->setDescription('Lock access to the site while maintenance...')
             ->addArgument('ttl', InputArgument::OPTIONAL, 'Overwrite time to life from your configuration, doesn\'t work with file or shm driver. Time in seconds.', null)
             ->setHelp(<<<EOT

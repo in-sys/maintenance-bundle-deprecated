@@ -1,11 +1,11 @@
 <?php
 
-namespace Lexik\Bundle\MaintenanceBundle\Tests\Maintenance;
+namespace INSYS\Bundle\MaintenanceBundle\Tests\Maintenance;
 
 /**
  *
  *
- * @package LexikMaintenanceBundle
+ * @package INSYSMaintenanceBundle
  * @author  Gilles Gauthier <g.gauthier@lexik.fr>
  */
 abstract class TestCase extends \PHPUnit\Framework\TestCase

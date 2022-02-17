@@ -1,54 +1,21 @@
-name: Test PHPUnit
+name: Release
 
 on:
   push:
     branches:
-      - "([0-9])?(.{+([0-9]),x}).x"
-      - "main"
-      - "next"
-      - "next-major"
-      - "alpha"
-      - "beta"
-
+      - main
 jobs:
-  semantic-release:
-    name: "Semantic Release"
-    runs-on: "ubuntu-latest"
+  release-please:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       - name: Generate token
         uses: tibdex/github-app-token@v1
         id: generate-token
         with:
           app_id: ${{ secrets.BOT_APP_ID }}
           private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
+      - uses: GoogleCloudPlatform/release-please-action@main
         with:
-          semantic_version: 19
-          branches: |
-            [
-              '+([0-9])?(.{+([0-9]),x}).x',
-              'main',
-              'master', 
-              'next', 
-              'next-major', 
-              {
-                name: 'beta', 
-                prerelease: true
-              }, 
-              {
-                name: 'alpha', 
-                prerelease: true
-              }
-            ]
-          extra_plugins: |
-            @semantic-release/changelog@^6.0
-            @semantic-release/git@^10.0
-            @google/semantic-release-replace-plugin@^1.1
-            conventional-changelog-conventionalcommits@^4.6
-        env:
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+          release-type: php
+          package-name: insys-symfony-maintenance-bundle
+          token: ${{ steps.generate-token.outputs.token }}

@@ -9,7 +9,7 @@
     </parameters>
     
     <services>        
-       <service id="insys_maintenance.driver.database" class="%lexik_maintenance.driver.database.class%" public="false">
+       <service id="insys_maintenance.driver.database" class="%insys_maintenance.driver.database.class%" public="false">
            <argument type="service" id="doctrine" on-invalid="ignore" />
        </service> 
     </services>

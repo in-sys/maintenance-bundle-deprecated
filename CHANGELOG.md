@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://www.github.com/in-sys/symfony-maintenance-bundle/compare/v0.1.0...v1.0.0) (2022-02-17)
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([d04877a](https://www.github.com/in-sys/symfony-maintenance-bundle/commit/d04877a85130d7b020ba8fe7b06514a1b39029ba))
+
 ## 0.1.0 (2022-02-17)
 
 

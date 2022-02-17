@@ -78,7 +78,7 @@ class MaintenanceListener
     protected $http_status;
 
     /**
-     * @var null|String
+     * @var String
      */
     protected $http_exception_message;
 
@@ -111,7 +111,7 @@ class MaintenanceListener
      * @param array $attributes Attributes
      * @param Int $http_code http status code for response
      * @param String $http_status http status message for response
-     * @param null $http_exception_message http response page exception message
+     * @param String $http_exception_message http response page exception message
      * @param bool $debug
      */
     public function __construct(
@@ -125,7 +125,7 @@ class MaintenanceListener
         $attributes = array(),
         $http_code = null,
         $http_status = null,
-        $http_exception_message = null,
+        $http_exception_message = '',
         $debug = false
     ) {
         $this->driverFactory = $driverFactory;
@@ -151,7 +151,7 @@ class MaintenanceListener
      */
     public function onKernelRequest(RequestEvent $event)
     {
-        if(!$event->isMasterRequest()){
+        if(!$event->isMainRequest()){
             return;
         }
 
